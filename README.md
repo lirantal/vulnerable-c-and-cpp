@@ -130,3 +130,37 @@ Seeing the undefined behavior error message from a compiler warning about _divis
 The reason for that is that Snyk employed machine learning techniques in its static code application security engine that can understand program call flows and connect sink-to-source code path flows to unearth insecure code and potential vulnerabilities in your codebase without even compiling the code.
 
 ![Vulnerable C program code showing undefined behavior](./assets/vulnerable-c-program2.png)
+
+## Program 3
+
+The `program3.c` file contains several example, let's exploit them to demonstrate the different issues.
+
+Once the program is compiled, you can run it:
+
+```bash
+$ ./program3.app "text.txt"
+```
+
+Given that you have a file in the same directory named `text.txt` and it is not empty, the program will read the file and print its contents.
+
+For example:
+
+```bash
+Size of the file: 44
+Contents of the file: FROM alpine:latest
+RUN apk add g++ valgrind
+```
+
+Looks ok. What happens if you pass a file that traverses the directory structure?
+
+```bash
+$ ./program3.app "../../../../../etc/passwd"
+```
+
+A path traversal vulnerability is present in the program, allowing an attacker to read sensitive files on the system.
+
+To test other vulnerabilities, try to:
+
+- Pass a file that does not exist
+- Pass a file that is empty
+- Pass a file name or full path that is too large (more than 50 characters)
