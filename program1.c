@@ -17,3 +17,19 @@ int main() {
     // Memory leak as memory is not freed
     return 0;
 }
+
+/**
+// ✅ Avoid memory leaks by ensuring that dynamically allocated memory is freed after use
+
+#include <stdio.h>
+
+void allocateMemory() {
+    int arr[10]; // Use static allocation
+    // Do something with arr
+}
+
+int main() {
+    allocateMemory();
+    return 0;
+}
+*/
