@@ -164,3 +164,7 @@ To test other vulnerabilities, try to:
 - Pass a file that does not exist
 - Pass a file that is empty
 - Pass a file name or full path that is too large (more than 50 characters)
+
+## Contributing
+
+Please consult [CONTRIBUTING](./CONTRIBUTING.md) for guidelines on contributing to this project.
